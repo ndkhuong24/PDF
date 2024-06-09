@@ -16,35 +16,38 @@
       height: 100%;
       overflow: hidden;
     }
-
-    /* Flipbook styles */
+    
     .flipbook {
       position: absolute;
       top: 0;
       left: 0;
       height: 100vh;
-      /* Đảm bảo flipbook phù hợp với chiều cao của cửa sổ trình duyệt */
     }
 
     .page {
-      background-color: white;
-      /* Màu nền của trang */
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-      /* Đổ bóng cho trang */
+      -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      -ms-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      -o-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     }
 
-    /* Đổ bóng ảo */
     .shadow {
-      background-image: linear-gradient(to right,
-          rgba(0, 0, 0, 0.1) 0%,
-          rgba(0, 0, 0, 0.5) 100%);
+      -webkit-transition: -webkit-box-shadow 0.5s;
+      -moz-transition: -moz-box-shadow 0.5s;
+      -o-transition: -webkit-box-shadow 0.5s;
+      -ms-transition: -ms-box-shadow 0.5s;
+
+      -webkit-box-shadow: 0 0 20px #ccc;
+      -moz-box-shadow: 0 0 20px #ccc;
+      -o-box-shadow: 0 0 20px #ccc;
+      -ms-box-shadow: 0 0 20px #ccc;
+      box-shadow: 0 0 20px #ccc;
     }
 
-    /* Các kiểu mặc định cho các hình ảnh */
     .flipbook img {
       width: auto;
       height: 100vh;
-      /* Đảm bảo hình ảnh phù hợp với chiều cao của cửa sổ trình duyệt */
     }
   </style>
 </head>
