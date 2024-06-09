@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aijou no Injoku Elf</title>
+  <script type="text/javascript" src="../../extras/jquery.min.1.7.js"></script>
+  <script type="text/javascript" src="../../extras/modernizr.2.5.3.min.js"></script>
+
+</head>
+
+<body>
+  <div class="flipbook-viewport">
+    <div class="flipbook">
+      <div><img src="pages/Aijou no Injoku Elf (1).jpg"></div>
+      <div><img src="pages/Aijou no Injoku Elf (2).jpg"></div>
+      <div><img src="pages/Aijou no Injoku Elf (3).jpg"></div>
+      <div><img src="pages/Aijou no Injoku Elf (4).jpg"></div>
+      <div><img src="pages/Aijou no Injoku Elf (5).jpg"></div>
+      <div><img src="pages/Aijou no Injoku Elf (6).jpg"></div>
+      <div><img src="pages/Aijou no Injoku Elf (7).jpg"></div>
+      <div><img src="pages/Aijou no Injoku Elf (8).jpg"></div>
+      <div><img src="pages/Aijou no Injoku Elf (9).jpg"></div>
+      <div><img src="pages/Aijou no Injoku Elf (10).jpg"></div>
+      <div><img src="pages/Aijou no Injoku Elf (11).jpg"></div>
+      <div><img src="pages/Aijou no Injoku Elf (12).jpg"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    function loadApp() {
+      var parentWidth = $('.flipbook-viewport').width();
+      var parentHeight = $('.flipbook-viewport').height();
+      var widthPercentage = 100;
+      var heightPercentage = 100;
+
+      var width = parentWidth * (widthPercentage / 100);
+      var height = parentHeight * (heightPercentage / 100);
+
+      $('.flipbook').turn({
+        width: width,
+        height: height,
+        elevation: 50,
+        gradients: true,
+        autoCenter: true,
+        display: 'single',
+        direction: 'ltr',
+        duration: 1000,
+        acceleration: true,
+      });
+    }
+
+    yepnope({
+      test: Modernizr.csstransforms,
+      yep: ['../../lib/turn.js'],
+      nope: ['../../lib/turn.html4.min.js'],
+      both: ['css/basic.css'],
+      complete: loadApp
+    });
+
+    $(document).keydown(function (e) {
+      var previous = 37, next = 39;
+
+      switch (e.keyCode) {
+        case previous:
+          $('.flipbook').turn('previous');
+          break;
+        case next:
+          $('.flipbook').turn('next');
+          break;
+      }
+    });
+  </script>
+</body>
+
+</html>
