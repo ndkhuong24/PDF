@@ -54,20 +54,24 @@
 
 <body>
   <div class="flipbook">
-    <img src="pages/Aijou no Injoku Elf (1).jpg" />
-    <img src="pages/Aijou no Injoku Elf (2).jpg" />
-    <img src="pages/Aijou no Injoku Elf (3).jpg" />
-    <img src="pages/Aijou no Injoku Elf (4).jpg" />
-    <img src="pages/Aijou no Injoku Elf (5).jpg" />
-    <img src="pages/Aijou no Injoku Elf (6).jpg" />
-    <img src="pages/Aijou no Injoku Elf (7).jpg" />
-    <img src="pages/Aijou no Injoku Elf (8).jpg" />
-    <img src="pages/Aijou no Injoku Elf (9).jpg" />
-    <img src="pages/Aijou no Injoku Elf (10).jpg" />
-    <img src="pages/Aijou no Injoku Elf (11).jpg" />
-    <img src="pages/Aijou no Injoku Elf (12).jpg" />
+    
   </div>
   <script type="text/javascript">
+    function displayImages() {
+      const flipbook = document.querySelector('.flipbook');
+      flipbook.innerHTML = ''; // Xóa nội dung hiện tại của flipbook
+
+      for (let i = 1; i <= 239; i++) {
+        const img = document.createElement('img');
+        img.src = 'pages/Aijou no Injoku Elf (' + i + ').jpg';
+        flipbook.appendChild(img);
+      }
+    }
+
+    // Gọi hàm này để hiển thị các ảnh
+    displayImages();
+
+
     function loadApp() {
       $(".flipbook").turn({
         width: "100%",
