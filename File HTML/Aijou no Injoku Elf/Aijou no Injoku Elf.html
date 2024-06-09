@@ -2,77 +2,50 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aijou no Injoku Elf</title>
-  <style>
-    /* Reset CSS */
-    body,
-    html {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
-
-    /* Flipbook styles */
-    .flipbook {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      /* Đảm bảo flipbook phù hợp với chiều cao của cửa sổ trình duyệt */
-    }
-
-    .page {
-      background-color: white;
-      /* Màu nền của trang */
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-      /* Đổ bóng cho trang */
-    }
-
-    /* Đổ bóng ảo */
-    .shadow {
-      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.5) 100%);
-    }
-
-    /* Các kiểu mặc định cho các hình ảnh */
-    .flipbook img {
-      width: auto;
-      height: 100vh;
-      /* Đảm bảo hình ảnh phù hợp với chiều cao của cửa sổ trình duyệt */
-    }
-  </style>
   <script type="text/javascript" src="../../extras/jquery.min.1.7.js"></script>
   <script type="text/javascript" src="../../extras/modernizr.2.5.3.min.js"></script>
+
 </head>
 
 <body>
-  <div class="flipbook">
-    <img src="pages/Aijou no Injoku Elf (1).jpg" />
-    <img src="pages/Aijou no Injoku Elf (2).jpg" />
-    <img src="pages/Aijou no Injoku Elf (3).jpg" />
-    <img src="pages/Aijou no Injoku Elf (4).jpg" />
-    <img src="pages/Aijou no Injoku Elf (5).jpg" />
-    <img src="pages/Aijou no Injoku Elf (6).jpg" />
-    <img src="pages/Aijou no Injoku Elf (7).jpg" />
-    <img src="pages/Aijou no Injoku Elf (8).jpg" />
-    <img src="pages/Aijou no Injoku Elf (9).jpg" />
-    <img src="pages/Aijou no Injoku Elf (10).jpg" />
-    <img src="pages/Aijou no Injoku Elf (11).jpg" />
-    <img src="pages/Aijou no Injoku Elf (12).jpg" />
+  <div class="flipbook-viewport">
+    <div class="flipbook">
+      <div><img src="pages/Aijou no Injoku Elf (1).jpg"></div>
+      <div><img src="pages/Aijou no Injoku Elf (2).jpg"></div>
+      <div><img src="pages/Aijou no Injoku Elf (3).jpg"></div>
+      <div><img src="pages/Aijou no Injoku Elf (4).jpg"></div>
+      <div><img src="pages/Aijou no Injoku Elf (5).jpg"></div>
+      <div><img src="pages/Aijou no Injoku Elf (6).jpg"></div>
+      <div><img src="pages/Aijou no Injoku Elf (7).jpg"></div>
+      <div><img src="pages/Aijou no Injoku Elf (8).jpg"></div>
+      <div><img src="pages/Aijou no Injoku Elf (9).jpg"></div>
+      <div><img src="pages/Aijou no Injoku Elf (10).jpg"></div>
+      <div><img src="pages/Aijou no Injoku Elf (11).jpg"></div>
+      <div><img src="pages/Aijou no Injoku Elf (12).jpg"></div>
+    </div>
   </div>
+
   <script type="text/javascript">
     function loadApp() {
-      $(".flipbook").turn({
-        width: "100%",
-        height: "100%",
+      var parentWidth = $('.flipbook-viewport').width();
+      var parentHeight = $('.flipbook-viewport').height();
+      var widthPercentage = 100;
+      var heightPercentage = 100;
+
+      var width = parentWidth * (widthPercentage / 100);
+      var height = parentHeight * (heightPercentage / 100);
+
+      $('.flipbook').turn({
+        width: width,
+        height: height,
         elevation: 50,
         gradients: true,
         autoCenter: true,
-        display: "single",
-        direction: "ltr",
+        display: 'single',
+        direction: 'ltr',
         duration: 1000,
         acceleration: true,
       });
@@ -80,22 +53,21 @@
 
     yepnope({
       test: Modernizr.csstransforms,
-      yep: ["../../lib/turn.js"],
-      nope: ["../../lib/turn.html4.min.js"],
-      both: ["css/basic.css"],
-      complete: loadApp,
+      yep: ['../../lib/turn.js'],
+      nope: ['../../lib/turn.html4.min.js'],
+      both: ['css/basic.css'],
+      complete: loadApp
     });
 
     $(document).keydown(function (e) {
-      var previous = 37,
-        next = 39;
+      var previous = 37, next = 39;
 
       switch (e.keyCode) {
         case previous:
-          $(".flipbook").turn("previous");
+          $('.flipbook').turn('previous');
           break;
         case next:
-          $(".flipbook").turn("next");
+          $('.flipbook').turn('next');
           break;
       }
     });
