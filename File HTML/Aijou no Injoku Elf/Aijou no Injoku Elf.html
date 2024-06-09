@@ -7,31 +7,27 @@
   <title>Aijou no Injoku Elf</title>
   <script type="text/javascript" src="../../extras/jquery.min.1.7.js"></script>
   <script type="text/javascript" src="../../extras/modernizr.2.5.3.min.js"></script>
-
 </head>
 
 <body>
-  <div class="flipbook-viewport">
-    <div class="flipbook">
-      <div><img src="pages/Aijou no Injoku Elf (1).jpg"></div>
-      <div><img src="pages/Aijou no Injoku Elf (2).jpg"></div>
-      <div><img src="pages/Aijou no Injoku Elf (3).jpg"></div>
-      <div><img src="pages/Aijou no Injoku Elf (4).jpg"></div>
-      <div><img src="pages/Aijou no Injoku Elf (5).jpg"></div>
-      <div><img src="pages/Aijou no Injoku Elf (6).jpg"></div>
-      <div><img src="pages/Aijou no Injoku Elf (7).jpg"></div>
-      <div><img src="pages/Aijou no Injoku Elf (8).jpg"></div>
-      <div><img src="pages/Aijou no Injoku Elf (9).jpg"></div>
-      <div><img src="pages/Aijou no Injoku Elf (10).jpg"></div>
-      <div><img src="pages/Aijou no Injoku Elf (11).jpg"></div>
-      <div><img src="pages/Aijou no Injoku Elf (12).jpg"></div>
-    </div>
+  <div class="flipbook">
+    <div><img src="pages/Aijou no Injoku Elf (1).jpg"></div>
+    <div><img src="pages/Aijou no Injoku Elf (2).jpg"></div>
+    <div><img src="pages/Aijou no Injoku Elf (3).jpg"></div>
+    <div><img src="pages/Aijou no Injoku Elf (4).jpg"></div>
+    <div><img src="pages/Aijou no Injoku Elf (5).jpg"></div>
+    <div><img src="pages/Aijou no Injoku Elf (6).jpg"></div>
+    <div><img src="pages/Aijou no Injoku Elf (7).jpg"></div>
+    <div><img src="pages/Aijou no Injoku Elf (8).jpg"></div>
+    <div><img src="pages/Aijou no Injoku Elf (9).jpg"></div>
+    <div><img src="pages/Aijou no Injoku Elf (10).jpg"></div>
+    <div><img src="pages/Aijou no Injoku Elf (11).jpg"></div>
+    <div><img src="pages/Aijou no Injoku Elf (12).jpg"></div>
   </div>
-
   <script type="text/javascript">
     function loadApp() {
-      var parentWidth = $('.flipbook-viewport').width();
-      var parentHeight = $('.flipbook-viewport').height();
+      var parentWidth = $(window).width();
+      var parentHeight = $(window).height();
       var widthPercentage = 100;
       var heightPercentage = 100;
 
@@ -60,7 +56,8 @@
     });
 
     $(document).keydown(function (e) {
-      var previous = 37, next = 39;
+      var previous = 37,
+        next = 39;
 
       switch (e.keyCode) {
         case previous:
