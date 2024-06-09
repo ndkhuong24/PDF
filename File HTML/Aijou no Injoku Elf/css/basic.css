@@ -5,18 +5,22 @@ body {
   margin: 0;
   padding: 0;
 }
-.flipbook div img {
+.flipbook-viewport .flipbook div img {
   height: 100vh;
   width: auto;
 }
-
-.flipbook {
-  width: 100vh;
-  height: 100vh;
+.flipbook-viewport {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
-.flipbook .page {
-  width: 100vh;
-  height: 100vh;
+.flipbook-viewport .flipbook {
+  width: 100%;
+  height: 100%;
+}
+.flipbook-viewport .page {
+  width: 100%;
+  height: 100%;
 }
 .flipbook .page {
   -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
@@ -25,7 +29,7 @@ body {
   -o-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
-.flipbook .page img {
+.flipbook-viewport .page img {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -34,7 +38,7 @@ body {
   user-select: none;
   margin: 0;
 }
-.flipbook .shadow {
+.flipbook-viewport .shadow {
   -webkit-transition: -webkit-box-shadow 0.5s;
   -moz-transition: -moz-box-shadow 0.5s;
   -o-transition: -webkit-box-shadow 0.5s;
