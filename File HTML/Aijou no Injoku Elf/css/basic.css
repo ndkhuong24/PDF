@@ -4,7 +4,6 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: red;
 }
 .flipbook div img {
   height: 100vh;
@@ -16,7 +15,6 @@ body {
   height: 100vh;
 }
 .flipbook .page {
-  background-color: blue;
   width: 100vh;
   height: 100vh;
 }
