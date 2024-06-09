@@ -7,6 +7,7 @@
   <title>Aijou no Injoku Elf</title>
   <script type="text/javascript" src="../../extras/jquery.min.1.7.js"></script>
   <script type="text/javascript" src="../../extras/modernizr.2.5.3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
   <link rel="stylesheet" href="css/basic.css">
 </head>
 
@@ -56,7 +57,19 @@
       yep: ['../../lib/turn.js'],
       nope: ['../../lib/turn.html4.min.js'],
       // both: ['css/basic.css'],
-      complete: loadApp
+      // complete: loadApp
+      complete: function () {
+        loadApp();
+
+        // Bắt sự kiện vuốt sang bên sử dụng Hammer.js
+        var flipbook = $('.flipbook');
+        flipbook.hammer().on('swipeleft', function () {
+          flipbook.turn('next');
+        });
+        flipbook.hammer().on('swiperight', function () {
+          flipbook.turn('previous');
+        });
+      }
     });
 
     $(document).keydown(function (e) {
