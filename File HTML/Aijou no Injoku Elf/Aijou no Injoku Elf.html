@@ -2,111 +2,69 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aijou no Injoku Elf</title>
-  <script type="text/javascript" src="../../extras/jquery.min.1.7.js"></script>
-  <script type="text/javascript" src="../../extras/modernizr.2.5.3.min.js"></script>
-  <style>
-    body,
-    html {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aijou no Injoku Elf</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="../../lib/turn.min.js"></script>
 
-    .flipbook {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100vh;
-    }
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
 
-    .page {
-      -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-      -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-      -ms-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-      -o-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    }
-
-    .shadow {
-      -webkit-transition: -webkit-box-shadow 0.5s;
-      -moz-transition: -moz-box-shadow 0.5s;
-      -o-transition: -webkit-box-shadow 0.5s;
-      -ms-transition: -ms-box-shadow 0.5s;
-
-      -webkit-box-shadow: 0 0 20px #ccc;
-      -moz-box-shadow: 0 0 20px #ccc;
-      -o-box-shadow: 0 0 20px #ccc;
-      -ms-box-shadow: 0 0 20px #ccc;
-      box-shadow: 0 0 20px #ccc;
-    }
-
-    .flipbook img {
-      width: auto;
-      height: 100vh;
-    }
-  </style>
+        #magazine img {
+            width: auto;
+            height: 100vh;
+        }
+    </style>
 </head>
 
 <body>
-  <div class="flipbook">
-    
-  </div>
-  <script type="text/javascript">
-    function displayImages() {
-      const flipbook = document.querySelector('.flipbook');
-      flipbook.innerHTML = ''; // Xóa nội dung hiện tại của flipbook
+    <div id="magazine">
+    </div>
 
-      for (let i = 1; i <= 239; i++) {
-        const img = document.createElement('img');
-        img.src = 'pages/Aijou no Injoku Elf (' + i + ').jpg';
-        flipbook.appendChild(img);
-      }
-    }
+    <script>
+        function displayImages() {
+            const magazine = document.querySelector('#magazine');
+            magazine.innerHTML = '';
 
-    // Gọi hàm này để hiển thị các ảnh
-    displayImages();
+            for (let i = 1; i <= 239; i++) {
+                const img = document.createElement('img');
+                img.src = 'Aijou no Injoku Elf/Aijou no Injoku Elf (' + i + ').jpg';
+                magazine.appendChild(img);
+            }
+        }
 
+        displayImages();
+        $(document).ready(function () {
+            $('#magazine').turn({
+                display: 'single',
+                acceleration: true,
+                gradients: !$.isTouch,
+                elevation: 50,
+                duration: 1000,
+                autoCenter: true,
+                when: {
+                    turned: function (e, page) {
+                    }
+                }
+            });
 
-    function loadApp() {
-      $(".flipbook").turn({
-        width: "100%",
-        height: "100%",
-        elevation: 50,
-        gradients: true,
-        autoCenter: true,
-        display: "single",
-        direction: "ltr",
-        duration: 1000,
-        acceleration: true,
-      });
-    }
+            $(window).keydown(function (e) {
+                if (e.keyCode == 37)
+                    $('#magazine').turn('previous');
+                else if (e.keyCode == 39)
+                    $('#magazine').turn('next');
+            });
+        });
+    </script>
 
-    yepnope({
-      test: Modernizr.csstransforms,
-      yep: ["../../lib/turn.js"],
-      nope: ["../../lib/turn.html4.min.js"],
-      complete: loadApp,
-    });
-
-    $(document).keydown(function (e) {
-      var previous = 37,
-        next = 39;
-
-      switch (e.keyCode) {
-        case previous:
-          $(".flipbook").turn("previous");
-          break;
-        case next:
-          $(".flipbook").turn("next");
-          break;
-      }
-    });
-  </script>
 </body>
 
 </html>
